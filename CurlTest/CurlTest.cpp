@@ -64,6 +64,9 @@ int main()
     std::time_t a = getEpochTime(dateString);
     //std::time(&a);
     tm = localtime(&a);
+    tm->tm_year += 1900;
+    //tm->tm_mon -= 1;
+    a = mktime(tm);
     //strftime("21 Aug 2021 21:12:59 GMT", "%d %b %Y %H:%M:%S %Z", &tm); for linux
     
     std::cout << dateString;
