@@ -10,8 +10,7 @@
 
 void logInfo(std::string fileName, std::string message);
 
-std::time_t getEpochTime(const std::string& dateTime)
-{
+std::time_t getEpochTime(const std::string& dateTime) {
     static const std::string dateTimeFormat("%d %b %Y %H:%M:%S %Z");
     std::istringstream ss{ dateTime };
     std::tm dt;
@@ -19,8 +18,7 @@ std::time_t getEpochTime(const std::string& dateTime)
     return std::mktime(&dt);
 }
 
-size_t write_data(char* ptr, size_t size, size_t nmemb, void* data)
-{
+size_t write_data(char* ptr, size_t size, size_t nmemb, void* data) {
     size_t realsize = size * nmemb;
     ((std::string*)data)->append(ptr, realsize);
     return realsize;
@@ -45,8 +43,7 @@ int main(int argc, char* argv[])
     std::string headBuffer;
     std::string bodyBuffer;
     CURL* curl_handle = curl_easy_init();
-    if (curl_handle)
-    {
+    if (curl_handle) {
         const std::string URL = "https://www.google.com";
         curl_easy_setopt(curl_handle, CURLOPT_URL, URL.c_str());
         curl_easy_setopt(curl_handle, CURLOPT_WRITEFUNCTION, write_data);
@@ -76,9 +73,8 @@ int main(int argc, char* argv[])
             break;
         }
     }
-    if (dateString.empty()) {
+    if (dateString.empty())
         logInfo(fileName, "Cant find date");
-    }
 
     dateString = dateString.substr(11, dateString.size() - 12);
     struct tm* tm;
@@ -88,13 +84,11 @@ int main(int argc, char* argv[])
     tv.tv_sec = a;
     tv.tv_usec = 0;
 
-    if (settimeofday(&tv, NULL) < 0) {
+    if (settimeofday(&tv, NULL) < 0)
         logInfo(fileName, "time and date is not setted");
-    }
 
     curl_handle = curl_easy_init();
-    if (curl_handle)
-    {
+    if (curl_handle) {
         const std::string URL = "https://example.com";
         curl_easy_setopt(curl_handle, CURLOPT_URL, URL.c_str());
         CURLcode res = curl_easy_perform(curl_handle);
