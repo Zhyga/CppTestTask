@@ -1,7 +1,0 @@
-﻿CurlTest.obj : error LNK2019: ссылка на неразрешенный внешний символ curl_global_init в функции main.
-CurlTest.obj : error LNK2019: ссылка на неразрешенный внешний символ curl_global_cleanup в функции main.
-CurlTest.obj : error LNK2019: ссылка на неразрешенный внешний символ curl_easy_init в функции main.
-CurlTest.obj : error LNK2019: ссылка на неразрешенный внешний символ curl_easy_setopt в функции main.
-CurlTest.obj : error LNK2019: ссылка на неразрешенный внешний символ curl_easy_perform в функции main.
-CurlTest.obj : error LNK2019: ссылка на неразрешенный внешний символ curl_easy_cleanup в функции main.
-C:\Users\user\source\repos\CurlTest\x64\Debug\CurlTest.exe : fatal error LNK1120: неразрешенных внешних элементов: 6
